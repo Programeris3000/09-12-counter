@@ -70,16 +70,19 @@ numbersWrapper.append(input, numberDisplay, minus5Button, minus3Button, minus2Bu
 
 
 enterPoint.addEventListener('click', function() {
+  let listElement = document.createElement('li')
+  list.prepend(listElement)
   let liButton = document.createElement('button')
   liButton.textContent = 'Delete'
-  let listElement = document.createElement('li')
-  list.append(listElement)
   listElement.after(liButton)
-  listElement.textContent = numberDisplay.textContent
+  listElement.textContent = count
   listElement.style.color = numberDisplay.style.color
   listElement.style.listStyle = 'none'
   listElement.style.padding = '0'
-  
+  liButton.addEventListener('click', function() {
+    listElement.remove()
+    liButton.remove()
+  })
 })
 
 
